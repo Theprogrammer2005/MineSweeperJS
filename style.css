@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+}
+
+#game-container {
+    background-color: #ccc;
+    padding: 10px;
+    border: 5px solid #888;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#board {
+    display: grid;
+    /* This will be set by JS, but for a 9x9 board: */
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    border: 3px inset #fff;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #bdbdbd;
+    border: 3px outset #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    color: transparent; /* Text is hidden until clicked */
+}
+
+.cell:hover:not(.revealed) {
+    background-color: #c9c9c9;
+}
+
+.revealed {
+    background-color: #e0e0e0;
+    border: 1px solid #777;
+    cursor: default;
+    color: #000;
+}
+
+.mine {
+    background-color: red !important;
+    border: 1px solid #777 !important;
+    font-size: 20px !important;
+}
+
+.cell[data-count="1"] { color: blue; }
+.cell[data-count="2"] { color: green; }
+.cell[data-count="3"] { color: red; }
+.cell[data-count="4"] { color: navy; }
+.cell[data-count="5"] { color: maroon; }
+.cell[data-count="6"] { color: teal; }
+.cell[data-count="7"] { color: black; }
+.cell[data-count="8"] { color: gray; }
+
+#message {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.2em;
+    height: 25px;
+}
+
+#reset-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
